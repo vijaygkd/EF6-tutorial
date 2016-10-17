@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Books.Entities;
@@ -17,19 +18,19 @@ namespace Books.Web.Controllers
         private BooksDb db = new BooksDb();
 
         // GET: Books
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.Books.ToList());
+            return View(await db.Books.ToListAsync());
         }
 
         // GET: Books/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
+            Book book = await db.Books.FindAsync(id);
             if (book == null)
             {
                 return HttpNotFound();
@@ -48,12 +49,12 @@ namespace Books.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Category")] Book book)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Category")] Book book)
         {
             if (ModelState.IsValid)
             {
                 db.Books.Add(book);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -61,13 +62,13 @@ namespace Books.Web.Controllers
         }
 
         // GET: Books/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
+            Book book = await db.Books.FindAsync(id);
             if (book == null)
             {
                 return HttpNotFound();
@@ -80,12 +81,12 @@ namespace Books.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Category")] Book book)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Category")] Book book)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(book).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(book);
