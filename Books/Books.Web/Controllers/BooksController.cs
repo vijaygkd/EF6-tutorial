@@ -11,6 +11,7 @@ using Books.Web.DataContexts;
 
 namespace Books.Web.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private BooksDb db = new BooksDb();
