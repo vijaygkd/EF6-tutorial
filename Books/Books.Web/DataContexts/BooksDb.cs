@@ -16,7 +16,13 @@ namespace Books.Web.DataContexts
             Database.Log = (sql => Debug.Write(sql));
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // Tell model builder to use library db schema instead of default dbo schema
+            modelBuilder.HasDefaultSchema("library");
 
+            base.OnModelCreating(modelBuilder);
+        }
 
         // DbSet property maps to a table in DB.
         // In this case Books table will be created by Code first

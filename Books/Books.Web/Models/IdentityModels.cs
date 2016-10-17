@@ -29,5 +29,12 @@ namespace Books.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // use identity db schema instead of default dbo
+            modelBuilder.HasDefaultSchema("identity");
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
