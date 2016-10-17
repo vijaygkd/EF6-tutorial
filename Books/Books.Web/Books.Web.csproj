@@ -195,11 +195,19 @@
     <Compile Include="DataContexts\BookMigrations\201610170446548_InitialCreate.Designer.cs">
       <DependentUpon>201610170446548_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\BookMigrations\201610170636551_DefaultSchema.cs" />
+    <Compile Include="DataContexts\BookMigrations\201610170636551_DefaultSchema.Designer.cs">
+      <DependentUpon>201610170636551_DefaultSchema.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\BookMigrations\Configuration.cs" />
     <Compile Include="DataContexts\BooksDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201610170448213_InitialCreate.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201610170448213_InitialCreate.Designer.cs">
       <DependentUpon>201610170448213_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201610170637196_DefaultSchema.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201610170637196_DefaultSchema.Designer.cs">
+      <DependentUpon>201610170637196_DefaultSchema.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -295,8 +303,14 @@
     <EmbeddedResource Include="DataContexts\BookMigrations\201610170446548_InitialCreate.resx">
       <DependentUpon>201610170446548_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BookMigrations\201610170636551_DefaultSchema.resx">
+      <DependentUpon>201610170636551_DefaultSchema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201610170448213_InitialCreate.resx">
       <DependentUpon>201610170448213_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201610170637196_DefaultSchema.resx">
+      <DependentUpon>201610170637196_DefaultSchema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
