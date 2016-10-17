@@ -176,6 +176,10 @@
     </Compile>
     <Compile Include="DataContexts\BookMigrations\Configuration.cs" />
     <Compile Include="DataContexts\BooksDb.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201610170448213_InitialCreate.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201610170448213_InitialCreate.Designer.cs">
+      <DependentUpon>201610170448213_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -262,6 +266,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DataContexts\BookMigrations\201610170446548_InitialCreate.resx">
       <DependentUpon>201610170446548_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201610170448213_InitialCreate.resx">
+      <DependentUpon>201610170448213_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
